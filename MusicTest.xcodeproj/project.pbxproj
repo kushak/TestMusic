@@ -13,6 +13,8 @@
 		182D38FE2AF644C500F25480 /* VisualizerWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D38FD2AF644C500F25480 /* VisualizerWorker.swift */; };
 		182D39002AF645F700F25480 /* Visualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D38FF2AF645F700F25480 /* Visualizer.swift */; };
 		182D39022AF64AB400F25480 /* VisualizerViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D39012AF64AB400F25480 /* VisualizerViewContoller.swift */; };
+		18331EBA2AF79EBD0042A976 /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18331EB92AF79EBD0042A976 /* AudioEngine.swift */; };
+		18331EBC2AF7A5140042A976 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18331EBB2AF7A5140042A976 /* Spinner.swift */; };
 		185E55092AF2416400E2D6B8 /* Гитара 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 185E55062AF2416400E2D6B8 /* Гитара 1.wav */; };
 		185E550A2AF2416400E2D6B8 /* Гитара 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 185E55072AF2416400E2D6B8 /* Гитара 2.wav */; };
 		185E550B2AF2416400E2D6B8 /* Гитара 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 185E55082AF2416400E2D6B8 /* Гитара 3.wav */; };
@@ -43,6 +45,8 @@
 		182D38FD2AF644C500F25480 /* VisualizerWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerWorker.swift; sourceTree = "<group>"; };
 		182D38FF2AF645F700F25480 /* Visualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visualizer.swift; sourceTree = "<group>"; };
 		182D39012AF64AB400F25480 /* VisualizerViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerViewContoller.swift; sourceTree = "<group>"; };
+		18331EB92AF79EBD0042A976 /* AudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngine.swift; sourceTree = "<group>"; };
+		18331EBB2AF7A5140042A976 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		185E55062AF2416400E2D6B8 /* Гитара 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Гитара 1.wav"; sourceTree = "<group>"; };
 		185E55072AF2416400E2D6B8 /* Гитара 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Гитара 2.wav"; sourceTree = "<group>"; };
 		185E55082AF2416400E2D6B8 /* Гитара 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Гитара 3.wav"; sourceTree = "<group>"; };
@@ -87,6 +91,17 @@
 				182D39012AF64AB400F25480 /* VisualizerViewContoller.swift */,
 			);
 			path = Visualizer;
+			sourceTree = "<group>";
+		};
+		18331EB82AF79EA90042A976 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1888EDF42AF3D0EA00C90487 /* AudioOutputRecoder.swift */,
+				185E55272AF27F9000E2D6B8 /* MicRecorder.swift */,
+				18331EB92AF79EBD0042A976 /* AudioEngine.swift */,
+				18331EBB2AF7A5140042A976 /* Spinner.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		185E55042AF2414900E2D6B8 /* Samples */ = {
@@ -158,8 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				18CBE7AC2AF0C29000152426 /* ViewController.swift */,
-				185E55272AF27F9000E2D6B8 /* MicRecorder.swift */,
-				1888EDF42AF3D0EA00C90487 /* AudioOutputRecoder.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -208,6 +221,7 @@
 		18CBE7A72AF0C29000152426 /* MusicTest */ = {
 			isa = PBXGroup;
 			children = (
+				18331EB82AF79EA90042A976 /* Helpers */,
 				18CBE7A82AF0C29000152426 /* AppDelegate.swift */,
 				18CBE7AA2AF0C29000152426 /* SceneDelegate.swift */,
 				185E551B2AF2469F00E2D6B8 /* Modules */,
@@ -304,6 +318,7 @@
 				182D39022AF64AB400F25480 /* VisualizerViewContoller.swift in Sources */,
 				18CBE7AD2AF0C29000152426 /* ViewController.swift in Sources */,
 				185E55302AF2CA8400E2D6B8 /* LayerListViewController.swift in Sources */,
+				18331EBA2AF79EBD0042A976 /* AudioEngine.swift in Sources */,
 				185E551E2AF246DA00E2D6B8 /* SampleSelectionViewController.swift in Sources */,
 				18CBE7A92AF0C29000152426 /* AppDelegate.swift in Sources */,
 				182D38FE2AF644C500F25480 /* VisualizerWorker.swift in Sources */,
@@ -315,6 +330,7 @@
 				18CBE7AB2AF0C29000152426 /* SceneDelegate.swift in Sources */,
 				185E55202AF2470400E2D6B8 /* SampleSelectionButton.swift in Sources */,
 				185E55282AF27F9000E2D6B8 /* MicRecorder.swift in Sources */,
+				18331EBC2AF7A5140042A976 /* Spinner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,11 +485,11 @@
 				DEVELOPMENT_TEAM = HS76VV6WJD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MusicTest/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Give me permission";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,11 +514,11 @@
 				DEVELOPMENT_TEAM = HS76VV6WJD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MusicTest/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Give me permission";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

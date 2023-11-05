@@ -32,6 +32,13 @@ final class RecordControlsViewController: UIViewController {
         return button
     }()
 
+
+    private lazy var recordButtonLoader: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.color = UIColor(red: 128/255.0, green: 0/255.0, blue: 128/255.0, alpha: 1.0)
+        view.hidesWhenStopped = true
+        return view
+    }()
     private lazy var recordButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
@@ -43,10 +50,18 @@ final class RecordControlsViewController: UIViewController {
         return button
     }()
 
+    private lazy var micButtonLoader: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.color = UIColor(red: 128/255.0, green: 0/255.0, blue: 128/255.0, alpha: 1.0)
+        view.hidesWhenStopped = true
+        return view
+    }()
+
     private lazy var micButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
         button.setImage(UIImage(systemName: "mic.fill"), for: .normal)
+        button.setImage(nil, for: .disabled)
         button.tintColor = .darkText
         button.backgroundColor = .white
         button.addTarget(self, action: #selector(micAction), for: .touchUpInside)
@@ -54,7 +69,7 @@ final class RecordControlsViewController: UIViewController {
         return button
     }()
 
-    init(engine: AVAudioEngine) {
+    init(engine: AudioEngine) {
         audioOutputRecoder = AudioOutputRecoder(engine: engine)
         super.init(nibName: nil, bundle: nil)
     }
@@ -74,6 +89,8 @@ final class RecordControlsViewController: UIViewController {
             playButton,
             recordButton,
             micButton,
+            micButtonLoader,
+            recordButtonLoader,
         ]
 
         views.forEach {
@@ -94,11 +111,17 @@ final class RecordControlsViewController: UIViewController {
                 recordButton.widthAnchor.constraint(equalToConstant: 40),
                 recordButton.heightAnchor.constraint(equalToConstant: 40),
 
+                recordButtonLoader.centerXAnchor.constraint(equalTo: recordButton.centerXAnchor),
+                recordButtonLoader.centerYAnchor.constraint(equalTo: recordButton.centerYAnchor),
+
                 micButton.rightAnchor.constraint(equalTo: recordButton.leftAnchor, constant: -8),
                 micButton.leftAnchor.constraint(equalTo: view.leftAnchor),
                 micButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
                 micButton.widthAnchor.constraint(equalToConstant: 40),
                 micButton.heightAnchor.constraint(equalToConstant: 40),
+
+                micButtonLoader.centerXAnchor.constraint(equalTo: micButton.centerXAnchor),
+                micButtonLoader.centerYAnchor.constraint(equalTo: micButton.centerYAnchor),
             ]
         )
     }
@@ -128,16 +151,27 @@ final class RecordControlsViewController: UIViewController {
 
     @objc private func micAction() {
         if micButton.isSelected {
+            micButton.isSelected = false
             micButton.tintColor = .darkText
             micRecorder.stopRecord { [weak self] url in
                 guard let self else { return }
                 output?.didRecordMic(url: url)
             }
         } else {
-            micButton.tintColor = .systemRed
-            micRecorder.startRecord()
+            micButton.isEnabled = false
+            self.micButtonLoader.startAnimating()
+            self.micButton.tintColor = .white
+
+            DispatchQueue.global(qos: .userInitiated).async {
+                self.micRecorder.startRecord()
+                DispatchQueue.main.async {
+                    self.micButton.isEnabled = true
+                    self.micButton.isSelected = true
+                    self.micButtonLoader.stopAnimating()
+                    self.micButton.tintColor = .systemRed
+                }
+            }
         }
-        micButton.isSelected.toggle()
     }
 
     private func share(url: URL) {
@@ -145,4 +179,11 @@ final class RecordControlsViewController: UIViewController {
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         present(activityVC, animated: true, completion: nil)
     }
+}
+
+func printTimeElapsedWhenRunningCode(title:String, operation:()->()) {
+    let startTime = CFAbsoluteTimeGetCurrent()
+    operation()
+    let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+    print("Time elapsed for \(title): \(timeElapsed) s.")
 }

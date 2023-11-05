@@ -18,48 +18,19 @@ final class VisualizerWorker {
 
     typealias Constants = VisualizerConstants
 
-    private let engine: AVAudioEngine
+    private let engine: AudioEngine
     private let bufferSize = 1024
+    private lazy var fftSetup = vDSP_DFT_zop_CreateSetup(
+        nil,
+        UInt(bufferSize),
+        vDSP_DFT_Direction.FORWARD
+    )
 
-//    let player = AVAudioPlayerNode()
     var fftMagnitudes: [Float] = []
 
-    init(engine: AVAudioEngine) {
+    init(engine: AudioEngine) {
         self.engine = engine
-        _ = engine.mainMixerNode
-
-        engine.prepare()
-        try! engine.start()
-
-        /**
-         - Music: Moonlight Sonata Op. 27 No. 2 - III. Presto
-         - Performed by: Paul Pitman
-         - https://musopen.org/music/2547-piano-sonata-no-14-in-c-sharp-minor-moonlight-sonata-op-27-no-2/
-         */
-//        let audioFile = try! AVAudioFile(
-//            forReading: Bundle.main.url(forResource: "music", withExtension: "mp3")!
-//        )
-//        let format = audioFile.processingFormat
-//
-//        engine.attach(player)
-//        engine.connect(player, to: engine.mainMixerNode, format: format)
-//
-//        player.scheduleFile(audioFile, at: nil)
-
-        let fftSetup = vDSP_DFT_zop_CreateSetup(
-            nil,
-            UInt(bufferSize),
-            vDSP_DFT_Direction.FORWARD
-        )
-
-        engine.mainMixerNode.installTap(
-            onBus: 0,
-            bufferSize: UInt32(bufferSize),
-            format: nil
-        ) { [self] buffer, _ in
-            let channelData = buffer.floatChannelData?[0]
-            fftMagnitudes = fft(data: channelData!, setup: fftSetup!)
-        }
+        engine.add(delegate: self)
     }
 
     func fft(data: UnsafeMutablePointer<Float>, setup: OpaquePointer) -> [Float] {
@@ -91,3 +62,10 @@ final class VisualizerWorker {
     }
 }
 
+extension VisualizerWorker: AudioEngineDelegate {
+
+    func tapBlock(buffer: AVAudioPCMBuffer) {
+        let channelData = buffer.floatChannelData?[0]
+        fftMagnitudes = fft(data: channelData!, setup: fftSetup!)
+    }
+}

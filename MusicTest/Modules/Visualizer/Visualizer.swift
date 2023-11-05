@@ -68,6 +68,6 @@ struct Visualizer: View {
 import AVFoundation
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Visualizer(worker: .init(engine: AVAudioEngine()))
+        Visualizer(worker: .init(engine: AudioEngine(engine: AVAudioEngine())))
     }
 }

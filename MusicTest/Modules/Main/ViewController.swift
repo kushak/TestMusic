@@ -9,11 +9,14 @@ import UIKit
 import AVFAudio
 
 final class ViewController: UIViewController {
-    private let engine = AVAudioEngine()
+    private let spinnerContainerView = UIView()
+    private let spinner = UIActivityIndicatorView()
+    private let avEngine = AVAudioEngine()
+    private lazy var engine = AudioEngine(engine: avEngine)
     private let sampleSelectionViewController = SampleSelectionViewController()
     private let sampleSettingsViewController = SampleSettingsViewController()
     private lazy var visualizerViewContoller = VisualizerViewContoller(engine: engine)
-    private lazy var layerListViewController = LayerListViewController(engine: engine)
+    private lazy var layerListViewController = LayerListViewController(engine: avEngine)
     private lazy var recordControlsViewController = RecordControlsViewController(engine: engine)
 
     private lazy var layersButton: UIButton = {
@@ -63,16 +66,31 @@ final class ViewController: UIViewController {
 
         let views: [UIView] = [
             layersButton,
+            spinnerContainerView,
         ]
+
+        spinnerContainerView.backgroundColor = .white
+        spinnerContainerView.alpha = 0
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinnerContainerView.addSubview(spinner)
+        spinner.style = .large
+        spinner.color = UIColor(red: 128/255.0, green: 0/255.0, blue: 128/255.0, alpha: 1.0)
 
         views.forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
 
-
         NSLayoutConstraint.activate(
             [
+                spinnerContainerView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                spinnerContainerView.rightAnchor.constraint(equalTo: view.rightAnchor),
+                spinnerContainerView.topAnchor.constraint(equalTo: view.topAnchor),
+                spinnerContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+                spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+
                 sampleSelectionViewController.view.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
                 sampleSelectionViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
                 sampleSelectionViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -102,6 +120,39 @@ final class ViewController: UIViewController {
         )
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let colorTop =  UIColor(red: 0/255.0, green: 0/255.0, blue: 0.0/255.0, alpha: 1.0).cgColor
+        let colorBottom = UIColor(red: 128/255.0, green: 0/255.0, blue: 128/255.0, alpha: 1.0).cgColor
+
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop, colorBottom]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.frame = self.view.bounds
+
+        self.view.layer.insertSublayer(gradientLayer, at:0)
+    }
+
+    var wasStoppedAnimation = false
+    func startLoading() {
+        wasStoppedAnimation = false
+        spinner.startAnimating()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            UIView.animate(withDuration: 0.2) {
+                guard !self.wasStoppedAnimation else { return }
+                self.spinnerContainerView.alpha = 0.5
+            }
+        }
+    }
+
+    func stopLoading() {
+        wasStoppedAnimation = true
+        UIView.animate(withDuration: 0.2) {
+            self.spinnerContainerView.alpha = 0
+        }
+    }
+
     @objc private func didTapLayers() {
         if layerListViewController.view.isHidden {
             layersButton.backgroundColor = UIColor(
@@ -124,19 +175,6 @@ final class ViewController: UIViewController {
         view.addSubview(vc.view)
         vc.view.translatesAutoresizingMaskIntoConstraints = false
         didMove(toParent: self)
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        let colorTop =  UIColor(red: 0/255.0, green: 0/255.0, blue: 0.0/255.0, alpha: 1.0).cgColor
-        let colorBottom = UIColor(red: 128/255.0, green: 0/255.0, blue: 128/255.0, alpha: 1.0).cgColor
-
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.frame = self.view.bounds
-
-        self.view.layer.insertSublayer(gradientLayer, at:0)
     }
 }
 

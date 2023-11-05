@@ -10,7 +10,7 @@ import SwiftUI
 
 final class VisualizerViewContoller: UIHostingController<Visualizer> {
 
-    init(engine: AVAudioEngine) {
+    init(engine: AudioEngine) {
         let visualizer = Visualizer(worker: VisualizerWorker(engine: engine))
         super.init(rootView: visualizer)
     }

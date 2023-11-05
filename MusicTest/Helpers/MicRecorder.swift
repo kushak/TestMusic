@@ -14,11 +14,11 @@ final class MicRecorder: NSObject {
 
     func startRecord() {
         audioSession.requestRecordPermission() { [unowned self] allowed in
-            DispatchQueue.main.async {
+//            DispatchQueue.main.async {
                 if allowed {
                     self.startRecording()
                 }
-            }
+//            }
         }
     }
 
@@ -29,7 +29,6 @@ final class MicRecorder: NSObject {
 
     private func startRecording() {
         let audioFilename = getDocumentsDirectory().appendingPathComponent("mic\(Date().timeIntervalSince1970).m4a")
-//        let audioFilename = getDocumentsDirectory().appendingPathComponent("mic.m4a")
 
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
