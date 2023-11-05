@@ -139,9 +139,13 @@ final class RecordControlsViewController: UIViewController {
 
     @objc private func recordAction() {
         if recordButton.isSelected {
-            recordButton.tintColor = .darkText
-            guard let url = audioOutputRecoder.stop() else { return }
-            share(url: url)
+            recordButton.isEnabled = false
+            recordButton.tintColor = .white
+            self.recordButtonLoader.startAnimating()
+            DispatchQueue.main.async {
+                guard let url = self.audioOutputRecoder.stop() else { return }
+                self.share(url: url)
+            }
         } else {
             recordButton.tintColor = .systemRed
             audioOutputRecoder.record()
@@ -177,7 +181,13 @@ final class RecordControlsViewController: UIViewController {
     private func share(url: URL) {
         let objectsToShare = [url]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-        present(activityVC, animated: true, completion: nil)
+        present(activityVC, animated: true) {
+            self.recordButton.isEnabled = true
+            self.recordButton.isSelected = false
+            self.recordButton.tintColor = .darkText
+            self.recordButtonLoader.stopAnimating()
+
+        }
     }
 }
 

@@ -43,6 +43,7 @@ final class ViewController: UIViewController {
             try audioSession.setMode(.default)
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
             try audioSession.setCategory(.playAndRecord, mode: .default)
+            try audioSession.overrideOutputAudioPort(.speaker)
 
         } catch {
             print(error)
