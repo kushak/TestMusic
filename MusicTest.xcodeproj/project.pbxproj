@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182D38F82AF5695C00F25480 /* Духовые 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 182D38F62AF568D700F25480 /* Духовые 2.wav */; };
+		182D38F92AF5695C00F25480 /* Духовые 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 182D38F72AF568E500F25480 /* Духовые 1.wav */; };
+		182D38FA2AF5695C00F25480 /* Духовые 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 182D38F52AF5661200F25480 /* Духовые 3.wav */; };
+		182D38FE2AF644C500F25480 /* VisualizerWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D38FD2AF644C500F25480 /* VisualizerWorker.swift */; };
+		182D39002AF645F700F25480 /* Visualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D38FF2AF645F700F25480 /* Visualizer.swift */; };
+		182D39022AF64AB400F25480 /* VisualizerViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D39012AF64AB400F25480 /* VisualizerViewContoller.swift */; };
+		185E55092AF2416400E2D6B8 /* Гитара 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 185E55062AF2416400E2D6B8 /* Гитара 1.wav */; };
+		185E550A2AF2416400E2D6B8 /* Гитара 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 185E55072AF2416400E2D6B8 /* Гитара 2.wav */; };
+		185E550B2AF2416400E2D6B8 /* Гитара 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 185E55082AF2416400E2D6B8 /* Гитара 3.wav */; };
+		185E55102AF2437100E2D6B8 /* Ударные 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 185E550F2AF2437100E2D6B8 /* Ударные 3.wav */; };
+		185E55122AF2438100E2D6B8 /* Ударные 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 185E55112AF2438100E2D6B8 /* Ударные 2.wav */; };
+		185E55142AF2439900E2D6B8 /* Ударные 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 185E55132AF2439900E2D6B8 /* Ударные 1.wav */; };
+		185E551E2AF246DA00E2D6B8 /* SampleSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E551D2AF246DA00E2D6B8 /* SampleSelectionViewController.swift */; };
+		185E55202AF2470400E2D6B8 /* SampleSelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E551F2AF2470400E2D6B8 /* SampleSelectionButton.swift */; };
+		185E55222AF2473D00E2D6B8 /* SampleSelectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E55212AF2473D00E2D6B8 /* SampleSelectionService.swift */; };
+		185E55282AF27F9000E2D6B8 /* MicRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E55272AF27F9000E2D6B8 /* MicRecorder.swift */; };
+		185E552D2AF285DF00E2D6B8 /* SampleSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E552C2AF285DF00E2D6B8 /* SampleSettingsViewController.swift */; };
+		185E55302AF2CA8400E2D6B8 /* LayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E552F2AF2CA8400E2D6B8 /* LayerListViewController.swift */; };
+		185E55322AF2CC4800E2D6B8 /* LayerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E55312AF2CC4800E2D6B8 /* LayerCellView.swift */; };
+		1888EDD62AF3A8B400C90487 /* RecordControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888EDD52AF3A8B400C90487 /* RecordControlsViewController.swift */; };
+		1888EDF52AF3D0EA00C90487 /* AudioOutputRecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888EDF42AF3D0EA00C90487 /* AudioOutputRecoder.swift */; };
 		18CBE7A92AF0C29000152426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBE7A82AF0C29000152426 /* AppDelegate.swift */; };
 		18CBE7AB2AF0C29000152426 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBE7AA2AF0C29000152426 /* SceneDelegate.swift */; };
 		18CBE7AD2AF0C29000152426 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBE7AC2AF0C29000152426 /* ViewController.swift */; };
@@ -16,6 +37,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		182D38F52AF5661200F25480 /* Духовые 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Духовые 3.wav"; sourceTree = "<group>"; };
+		182D38F62AF568D700F25480 /* Духовые 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Духовые 2.wav"; sourceTree = "<group>"; };
+		182D38F72AF568E500F25480 /* Духовые 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Духовые 1.wav"; sourceTree = "<group>"; };
+		182D38FD2AF644C500F25480 /* VisualizerWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerWorker.swift; sourceTree = "<group>"; };
+		182D38FF2AF645F700F25480 /* Visualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visualizer.swift; sourceTree = "<group>"; };
+		182D39012AF64AB400F25480 /* VisualizerViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerViewContoller.swift; sourceTree = "<group>"; };
+		185E55062AF2416400E2D6B8 /* Гитара 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Гитара 1.wav"; sourceTree = "<group>"; };
+		185E55072AF2416400E2D6B8 /* Гитара 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Гитара 2.wav"; sourceTree = "<group>"; };
+		185E55082AF2416400E2D6B8 /* Гитара 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Гитара 3.wav"; sourceTree = "<group>"; };
+		185E550F2AF2437100E2D6B8 /* Ударные 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Ударные 3.wav"; sourceTree = "<group>"; };
+		185E55112AF2438100E2D6B8 /* Ударные 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Ударные 2.wav"; sourceTree = "<group>"; };
+		185E55132AF2439900E2D6B8 /* Ударные 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Ударные 1.wav"; sourceTree = "<group>"; };
+		185E551D2AF246DA00E2D6B8 /* SampleSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSelectionViewController.swift; sourceTree = "<group>"; };
+		185E551F2AF2470400E2D6B8 /* SampleSelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSelectionButton.swift; sourceTree = "<group>"; };
+		185E55212AF2473D00E2D6B8 /* SampleSelectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSelectionService.swift; sourceTree = "<group>"; };
+		185E55272AF27F9000E2D6B8 /* MicRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicRecorder.swift; sourceTree = "<group>"; };
+		185E552C2AF285DF00E2D6B8 /* SampleSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSettingsViewController.swift; sourceTree = "<group>"; };
+		185E552F2AF2CA8400E2D6B8 /* LayerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerListViewController.swift; sourceTree = "<group>"; };
+		185E55312AF2CC4800E2D6B8 /* LayerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerCellView.swift; sourceTree = "<group>"; };
+		1888EDD52AF3A8B400C90487 /* RecordControlsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordControlsViewController.swift; sourceTree = "<group>"; };
+		1888EDF42AF3D0EA00C90487 /* AudioOutputRecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioOutputRecoder.swift; sourceTree = "<group>"; };
 		18CBE7A52AF0C29000152426 /* MusicTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CBE7A82AF0C29000152426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18CBE7AA2AF0C29000152426 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +79,116 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182D38FC2AF6447900F25480 /* Visualizer */ = {
+			isa = PBXGroup;
+			children = (
+				182D38FD2AF644C500F25480 /* VisualizerWorker.swift */,
+				182D38FF2AF645F700F25480 /* Visualizer.swift */,
+				182D39012AF64AB400F25480 /* VisualizerViewContoller.swift */,
+			);
+			path = Visualizer;
+			sourceTree = "<group>";
+		};
+		185E55042AF2414900E2D6B8 /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				185E55152AF244D200E2D6B8 /* Woodwind */,
+				185E550C2AF2418C00E2D6B8 /* Drums */,
+				185E55052AF2415500E2D6B8 /* Guitar */,
+			);
+			path = Samples;
+			sourceTree = "<group>";
+		};
+		185E55052AF2415500E2D6B8 /* Guitar */ = {
+			isa = PBXGroup;
+			children = (
+				185E55062AF2416400E2D6B8 /* Гитара 1.wav */,
+				185E55072AF2416400E2D6B8 /* Гитара 2.wav */,
+				185E55082AF2416400E2D6B8 /* Гитара 3.wav */,
+			);
+			path = Guitar;
+			sourceTree = "<group>";
+		};
+		185E550C2AF2418C00E2D6B8 /* Drums */ = {
+			isa = PBXGroup;
+			children = (
+				185E55132AF2439900E2D6B8 /* Ударные 1.wav */,
+				185E55112AF2438100E2D6B8 /* Ударные 2.wav */,
+				185E550F2AF2437100E2D6B8 /* Ударные 3.wav */,
+			);
+			name = Drums;
+			path = /Users/apple/Documents/MusicTest/MusicTest/Samples/Drums;
+			sourceTree = "<absolute>";
+		};
+		185E55152AF244D200E2D6B8 /* Woodwind */ = {
+			isa = PBXGroup;
+			children = (
+				182D38F72AF568E500F25480 /* Духовые 1.wav */,
+				182D38F62AF568D700F25480 /* Духовые 2.wav */,
+				182D38F52AF5661200F25480 /* Духовые 3.wav */,
+			);
+			name = Woodwind;
+			path = /Users/apple/Documents/MusicTest/MusicTest/Samples/Woodwind;
+			sourceTree = "<absolute>";
+		};
+		185E551B2AF2469F00E2D6B8 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				182D38FC2AF6447900F25480 /* Visualizer */,
+				1888EDD42AF3A89C00C90487 /* RecordControls */,
+				185E552E2AF2CA7100E2D6B8 /* LayersList */,
+				185E552B2AF285C600E2D6B8 /* SampleSettings */,
+				185E551C2AF246AB00E2D6B8 /* SampleSelection */,
+				185E55242AF27E2300E2D6B8 /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		185E551C2AF246AB00E2D6B8 /* SampleSelection */ = {
+			isa = PBXGroup;
+			children = (
+				185E551D2AF246DA00E2D6B8 /* SampleSelectionViewController.swift */,
+				185E551F2AF2470400E2D6B8 /* SampleSelectionButton.swift */,
+				185E55212AF2473D00E2D6B8 /* SampleSelectionService.swift */,
+			);
+			path = SampleSelection;
+			sourceTree = "<group>";
+		};
+		185E55242AF27E2300E2D6B8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				18CBE7AC2AF0C29000152426 /* ViewController.swift */,
+				185E55272AF27F9000E2D6B8 /* MicRecorder.swift */,
+				1888EDF42AF3D0EA00C90487 /* AudioOutputRecoder.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		185E552B2AF285C600E2D6B8 /* SampleSettings */ = {
+			isa = PBXGroup;
+			children = (
+				185E552C2AF285DF00E2D6B8 /* SampleSettingsViewController.swift */,
+			);
+			path = SampleSettings;
+			sourceTree = "<group>";
+		};
+		185E552E2AF2CA7100E2D6B8 /* LayersList */ = {
+			isa = PBXGroup;
+			children = (
+				185E552F2AF2CA8400E2D6B8 /* LayerListViewController.swift */,
+				185E55312AF2CC4800E2D6B8 /* LayerCellView.swift */,
+			);
+			path = LayersList;
+			sourceTree = "<group>";
+		};
+		1888EDD42AF3A89C00C90487 /* RecordControls */ = {
+			isa = PBXGroup;
+			children = (
+				1888EDD52AF3A8B400C90487 /* RecordControlsViewController.swift */,
+			);
+			path = RecordControls;
+			sourceTree = "<group>";
+		};
 		18CBE79C2AF0C29000152426 = {
 			isa = PBXGroup;
 			children = (
@@ -58,7 +210,8 @@
 			children = (
 				18CBE7A82AF0C29000152426 /* AppDelegate.swift */,
 				18CBE7AA2AF0C29000152426 /* SceneDelegate.swift */,
-				18CBE7AC2AF0C29000152426 /* ViewController.swift */,
+				185E551B2AF2469F00E2D6B8 /* Modules */,
+				185E55042AF2414900E2D6B8 /* Samples */,
 				18CBE7AE2AF0C29000152426 /* Main.storyboard */,
 				18CBE7B12AF0C29100152426 /* Assets.xcassets */,
 				18CBE7B32AF0C29100152426 /* LaunchScreen.storyboard */,
@@ -126,8 +279,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				18CBE7B52AF0C29100152426 /* LaunchScreen.storyboard in Resources */,
+				182D38F82AF5695C00F25480 /* Духовые 2.wav in Resources */,
 				18CBE7B22AF0C29100152426 /* Assets.xcassets in Resources */,
+				182D38F92AF5695C00F25480 /* Духовые 1.wav in Resources */,
+				185E55142AF2439900E2D6B8 /* Ударные 1.wav in Resources */,
+				185E550B2AF2416400E2D6B8 /* Гитара 3.wav in Resources */,
+				182D38FA2AF5695C00F25480 /* Духовые 3.wav in Resources */,
+				185E55092AF2416400E2D6B8 /* Гитара 1.wav in Resources */,
+				185E550A2AF2416400E2D6B8 /* Гитара 2.wav in Resources */,
+				185E55102AF2437100E2D6B8 /* Ударные 3.wav in Resources */,
 				18CBE7B02AF0C29000152426 /* Main.storyboard in Resources */,
+				185E55122AF2438100E2D6B8 /* Ударные 2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +300,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185E55222AF2473D00E2D6B8 /* SampleSelectionService.swift in Sources */,
+				182D39022AF64AB400F25480 /* VisualizerViewContoller.swift in Sources */,
 				18CBE7AD2AF0C29000152426 /* ViewController.swift in Sources */,
+				185E55302AF2CA8400E2D6B8 /* LayerListViewController.swift in Sources */,
+				185E551E2AF246DA00E2D6B8 /* SampleSelectionViewController.swift in Sources */,
 				18CBE7A92AF0C29000152426 /* AppDelegate.swift in Sources */,
+				182D38FE2AF644C500F25480 /* VisualizerWorker.swift in Sources */,
+				1888EDD62AF3A8B400C90487 /* RecordControlsViewController.swift in Sources */,
+				182D39002AF645F700F25480 /* Visualizer.swift in Sources */,
+				185E55322AF2CC4800E2D6B8 /* LayerCellView.swift in Sources */,
+				1888EDF52AF3D0EA00C90487 /* AudioOutputRecoder.swift in Sources */,
+				185E552D2AF285DF00E2D6B8 /* SampleSettingsViewController.swift in Sources */,
 				18CBE7AB2AF0C29000152426 /* SceneDelegate.swift in Sources */,
+				185E55202AF2470400E2D6B8 /* SampleSelectionButton.swift in Sources */,
+				185E55282AF27F9000E2D6B8 /* MicRecorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +474,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -328,6 +503,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
