@@ -11,7 +11,11 @@ protocol SampleSelectionOutput: AnyObject {
     func didSelectSamle(with url: URL)
 }
 
-final class SampleSelectionViewController: UIViewController {
+protocol SampleSelectionInput: UIViewController {
+    var output: SampleSelectionOutput? { get set }
+}
+
+final class SampleSelectionViewController: UIViewController, SampleSelectionInput {
 
     weak var output: SampleSelectionOutput?
 

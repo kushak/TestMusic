@@ -13,8 +13,8 @@ struct SampleSettings {
 
     var delay: Float {
         let k = (rate - 0.5) / 1.5
-        let delay = 5 - k * 5
-        return delay
+        let delay = 3 - k * 3
+        return delay + 0.1
     }
 }
 
@@ -24,15 +24,20 @@ protocol SampleSettingsOutput: AnyObject {
 
 }
 
+protocol SampleSettingsInput: UIViewController {
+
+    var output: SampleSettingsOutput? { get set }
+
+    var currentSettings: SampleSettings { get }
+
+    func configure(with settings: SampleSettings)
+}
+
 final class SampleSettingsViewController: UIViewController {
     weak var output: SampleSettingsOutput?
 
     private let volumeSlider = UISlider()
     private let rateSlider = UISlider()
-
-    var currentSettings: SampleSettings {
-        .init(volume: volumeSlider.value, rate: rateSlider.value)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,11 +105,6 @@ final class SampleSettingsViewController: UIViewController {
         updateSettings(touches, with: event)
     }
 
-    func configure(with settings: SampleSettings) {
-        volumeSlider.value = settings.volume
-        rateSlider.value = settings.rate
-    }
-
     private func updateSettings(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let volume = calculateVolume(for: touch)
@@ -146,5 +146,17 @@ final class SampleSettingsViewController: UIViewController {
         rate = 0.5 + 1.5 * rate
 
         return rate
+    }
+}
+
+extension SampleSettingsViewController: SampleSettingsInput {
+
+    var currentSettings: SampleSettings {
+        .init(volume: volumeSlider.value, rate: rateSlider.value)
+    }
+
+    func configure(with settings: SampleSettings) {
+        volumeSlider.value = settings.volume
+        rateSlider.value = settings.rate
     }
 }

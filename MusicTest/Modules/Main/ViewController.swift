@@ -13,11 +13,11 @@ final class ViewController: UIViewController {
     private let spinner = UIActivityIndicatorView()
     private let avEngine = AVAudioEngine()
     private lazy var engine = AudioEngine(engine: avEngine)
-    private let sampleSelectionViewController = SampleSelectionViewController()
-    private let sampleSettingsViewController = SampleSettingsViewController()
-    private lazy var visualizerViewContoller = VisualizerViewContoller(engine: engine)
-    private lazy var layerListViewController = LayerListViewController(engine: avEngine)
-    private lazy var recordControlsViewController = RecordControlsViewController(engine: engine)
+    private let sampleSelectionViewController: SampleSelectionInput = SampleSelectionViewController()
+    private let sampleSettingsViewController: SampleSettingsInput = SampleSettingsViewController()
+    private lazy var visualizerViewContoller: VisualizerInput = VisualizerViewContoller(engine: engine)
+    private lazy var layerListViewController: LayerListInput = LayerListViewController(engine: avEngine)
+    private lazy var recordControlsViewController: RecordControlsInput = RecordControlsViewController(engine: engine)
 
     private lazy var layersButton: UIButton = {
         let button = UIButton()
@@ -200,7 +200,7 @@ extension ViewController: LayerListOutput {
     }
 }
 
-extension ViewController: RecordControlsViewControllerOutput {
+extension ViewController: RecordControlsOutput {
 
     func didRecordMic(url: URL) {
         layerListViewController.add(sampleUrl: url, settings: sampleSettingsViewController.currentSettings)

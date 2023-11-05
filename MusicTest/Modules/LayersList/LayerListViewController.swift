@@ -12,6 +12,14 @@ protocol LayerListOutput: AnyObject {
     func didSelectSample(with settings: SampleSettings)
 }
 
+protocol LayerListInput: UIViewController {
+    var output: LayerListOutput? { get set }
+    func add(sampleUrl: URL, settings: SampleSettings)
+    func update(settings: SampleSettings)
+    func playAll()
+    func stopAll()
+}
+
 private struct SampleInfo {
     let url: URL
     var settings: SampleSettings
@@ -91,6 +99,49 @@ final class LayerListViewController: UIViewController {
         super.viewDidLayoutSubviews()
         scrollView.verticalScrollIndicatorInsets = .init(top: 0, left: 0, bottom: 0, right: view.frame.width - 10)
     }
+
+    private func playSample(
+        with sampleUrl: URL,
+        id: String,
+        settings: SampleSettings
+    ) {
+        guard let file = try? AVAudioFile(forReading: sampleUrl) else { return }
+        let player = AVAudioPlayerNode()
+        engine.attach(player)
+        engine.connect(player, to: engine.mainMixerNode, format: engine.mainMixerNode.outputFormat(forBus: 0))
+        player.scheduleFile(file, at: nil) { [weak self] in
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                guard self.sampleInfoList[id]?.isLooped == true else {
+                    cells[id]?.displayPlayState(false)
+                    return
+                }
+
+                let delay = self.sampleInfoList[id]?.settings.delay ?? settings.delay
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(delay * 1000))) { [weak self] in
+                    guard let self, let info = sampleInfoList[id], !info.isPaused else { return }
+                    playSample(with: sampleUrl, id: id, settings: info.settings)
+                }
+            }
+        }
+
+        if engine.isRunning == false {
+            try! engine.start()
+        }
+
+        if let info = sampleInfoList[id], info.isMuted {
+            player.volume = 0
+        } else {
+            player.volume = settings.volume
+        }
+
+        player.play()
+        cells[id]?.displayPlayState(true)
+        players[id] = player
+    }
+}
+
+extension LayerListViewController: LayerListInput {
 
     func add(sampleUrl: URL, settings: SampleSettings) {
         let currentCount = sampleInfoList.values.filter { $0.url == sampleUrl }.count
@@ -202,45 +253,5 @@ final class LayerListViewController: UIViewController {
             sampleInfoList[url]?.isPaused = true
             cells[url]?.displayPlayState(false)
         }
-    }
-
-    private func playSample(
-        with sampleUrl: URL,
-        id: String,
-        settings: SampleSettings
-    ) {
-        guard let file = try? AVAudioFile(forReading: sampleUrl) else { return }
-        let player = AVAudioPlayerNode()
-        engine.attach(player)
-        engine.connect(player, to: engine.mainMixerNode, format: engine.mainMixerNode.outputFormat(forBus: 0))
-        player.scheduleFile(file, at: nil) { [weak self] in
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                guard self.sampleInfoList[id]?.isLooped == true else {
-                    cells[id]?.displayPlayState(false)
-                    return
-                }
-
-                let delay = self.sampleInfoList[id]?.settings.delay ?? settings.delay
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(delay * 1000))) { [weak self] in
-                    guard let self, let info = sampleInfoList[id], !info.isPaused else { return }
-                    playSample(with: sampleUrl, id: id, settings: info.settings)
-                }
-            }
-        }
-
-        if engine.isRunning == false {
-            try! engine.start()
-        }
-
-        if let info = sampleInfoList[id], info.isMuted {
-            player.volume = 0
-        } else {
-            player.volume = settings.volume
-        }
-
-        player.play()
-        cells[id]?.displayPlayState(true)
-        players[id] = player
     }
 }

@@ -8,7 +8,11 @@
 import AVFoundation
 import SwiftUI
 
-final class VisualizerViewContoller: UIHostingController<Visualizer> {
+protocol VisualizerInput: UIViewController {
+
+}
+
+final class VisualizerViewContoller: UIHostingController<Visualizer>, VisualizerInput {
 
     init(engine: AudioEngine) {
         let visualizer = Visualizer(worker: VisualizerWorker(engine: engine))

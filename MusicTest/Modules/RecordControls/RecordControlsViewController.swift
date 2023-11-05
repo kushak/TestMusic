@@ -8,14 +8,18 @@
 import UIKit
 import AVFoundation
 
-protocol RecordControlsViewControllerOutput: AnyObject {
+protocol RecordControlsOutput: AnyObject {
     func didRecordMic(url: URL)
     func didTapPlay()
     func didTapStop()
 }
 
-final class RecordControlsViewController: UIViewController {
-    weak var output: RecordControlsViewControllerOutput?
+protocol RecordControlsInput: UIViewController {
+    var output: RecordControlsOutput? { get set }
+}
+
+final class RecordControlsViewController: UIViewController, RecordControlsInput {
+    weak var output: RecordControlsOutput?
 
     private let micRecorder = MicRecorder()
     private let audioOutputRecoder: AudioOutputRecoder
@@ -189,11 +193,4 @@ final class RecordControlsViewController: UIViewController {
 
         }
     }
-}
-
-func printTimeElapsedWhenRunningCode(title:String, operation:()->()) {
-    let startTime = CFAbsoluteTimeGetCurrent()
-    operation()
-    let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
-    print("Time elapsed for \(title): \(timeElapsed) s.")
 }
