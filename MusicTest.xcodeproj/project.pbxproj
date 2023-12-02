@@ -28,6 +28,10 @@
 		185E552D2AF285DF00E2D6B8 /* SampleSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E552C2AF285DF00E2D6B8 /* SampleSettingsViewController.swift */; };
 		185E55302AF2CA8400E2D6B8 /* LayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E552F2AF2CA8400E2D6B8 /* LayerListViewController.swift */; };
 		185E55322AF2CC4800E2D6B8 /* LayerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E55312AF2CC4800E2D6B8 /* LayerCellView.swift */; };
+		1878E3B42B1AF29E005FD8ED /* FinalVisulizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878E3B32B1AF29E005FD8ED /* FinalVisulizerViewController.swift */; };
+		1878E3B62B1AF9B2005FD8ED /* FinalVisualizerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878E3B52B1AF9B2005FD8ED /* FinalVisualizerControls.swift */; };
+		1878E3B82B1B076E005FD8ED /* Rotation3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878E3B72B1B076E005FD8ED /* Rotation3DView.swift */; };
+		1878E3BA2B1B0BAA005FD8ED /* RotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878E3B92B1B0BAA005FD8ED /* RotationView.swift */; };
 		1888EDD62AF3A8B400C90487 /* RecordControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888EDD52AF3A8B400C90487 /* RecordControlsViewController.swift */; };
 		1888EDF52AF3D0EA00C90487 /* AudioOutputRecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888EDF42AF3D0EA00C90487 /* AudioOutputRecoder.swift */; };
 		18CBE7A92AF0C29000152426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBE7A82AF0C29000152426 /* AppDelegate.swift */; };
@@ -60,6 +64,10 @@
 		185E552C2AF285DF00E2D6B8 /* SampleSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSettingsViewController.swift; sourceTree = "<group>"; };
 		185E552F2AF2CA8400E2D6B8 /* LayerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerListViewController.swift; sourceTree = "<group>"; };
 		185E55312AF2CC4800E2D6B8 /* LayerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerCellView.swift; sourceTree = "<group>"; };
+		1878E3B32B1AF29E005FD8ED /* FinalVisulizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalVisulizerViewController.swift; sourceTree = "<group>"; };
+		1878E3B52B1AF9B2005FD8ED /* FinalVisualizerControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalVisualizerControls.swift; sourceTree = "<group>"; };
+		1878E3B72B1B076E005FD8ED /* Rotation3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotation3DView.swift; sourceTree = "<group>"; };
+		1878E3B92B1B0BAA005FD8ED /* RotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationView.swift; sourceTree = "<group>"; };
 		1888EDD52AF3A8B400C90487 /* RecordControlsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordControlsViewController.swift; sourceTree = "<group>"; };
 		1888EDF42AF3D0EA00C90487 /* AudioOutputRecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioOutputRecoder.swift; sourceTree = "<group>"; };
 		18CBE7A52AF0C29000152426 /* MusicTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +108,7 @@
 				185E55272AF27F9000E2D6B8 /* MicRecorder.swift */,
 				18331EB92AF79EBD0042A976 /* AudioEngine.swift */,
 				18331EBB2AF7A5140042A976 /* Spinner.swift */,
+				1878E3B92B1B0BAA005FD8ED /* RotationView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -149,6 +158,7 @@
 		185E551B2AF2469F00E2D6B8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1878E3B22B1AF28F005FD8ED /* FinalVisulizer */,
 				182D38FC2AF6447900F25480 /* Visualizer */,
 				1888EDD42AF3A89C00C90487 /* RecordControls */,
 				185E552E2AF2CA7100E2D6B8 /* LayersList */,
@@ -192,6 +202,16 @@
 				185E55312AF2CC4800E2D6B8 /* LayerCellView.swift */,
 			);
 			path = LayersList;
+			sourceTree = "<group>";
+		};
+		1878E3B22B1AF28F005FD8ED /* FinalVisulizer */ = {
+			isa = PBXGroup;
+			children = (
+				1878E3B32B1AF29E005FD8ED /* FinalVisulizerViewController.swift */,
+				1878E3B52B1AF9B2005FD8ED /* FinalVisualizerControls.swift */,
+				1878E3B72B1B076E005FD8ED /* Rotation3DView.swift */,
+			);
+			path = FinalVisulizer;
 			sourceTree = "<group>";
 		};
 		1888EDD42AF3A89C00C90487 /* RecordControls */ = {
@@ -318,13 +338,17 @@
 				182D39022AF64AB400F25480 /* VisualizerViewContoller.swift in Sources */,
 				18CBE7AD2AF0C29000152426 /* ViewController.swift in Sources */,
 				185E55302AF2CA8400E2D6B8 /* LayerListViewController.swift in Sources */,
+				1878E3B42B1AF29E005FD8ED /* FinalVisulizerViewController.swift in Sources */,
 				18331EBA2AF79EBD0042A976 /* AudioEngine.swift in Sources */,
 				185E551E2AF246DA00E2D6B8 /* SampleSelectionViewController.swift in Sources */,
 				18CBE7A92AF0C29000152426 /* AppDelegate.swift in Sources */,
+				1878E3BA2B1B0BAA005FD8ED /* RotationView.swift in Sources */,
+				1878E3B62B1AF9B2005FD8ED /* FinalVisualizerControls.swift in Sources */,
 				182D38FE2AF644C500F25480 /* VisualizerWorker.swift in Sources */,
 				1888EDD62AF3A8B400C90487 /* RecordControlsViewController.swift in Sources */,
 				182D39002AF645F700F25480 /* Visualizer.swift in Sources */,
 				185E55322AF2CC4800E2D6B8 /* LayerCellView.swift in Sources */,
+				1878E3B82B1B076E005FD8ED /* Rotation3DView.swift in Sources */,
 				1888EDF52AF3D0EA00C90487 /* AudioOutputRecoder.swift in Sources */,
 				185E552D2AF285DF00E2D6B8 /* SampleSettingsViewController.swift in Sources */,
 				18CBE7AB2AF0C29000152426 /* SceneDelegate.swift in Sources */,

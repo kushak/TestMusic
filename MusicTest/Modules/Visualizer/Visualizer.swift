@@ -59,7 +59,13 @@ struct Visualizer: View {
     func updateData(_: Date) {
         withAnimation(.easeOut(duration: 0.08)) {
             data = audioProcessing.fftMagnitudes.map {
-                min($0, Constants.magnitudeLimit)
+                let value = min($0, Constants.magnitudeLimit)
+
+                if value != 0 {
+                    print(value)
+                }
+
+                return value
             }
         }
     }

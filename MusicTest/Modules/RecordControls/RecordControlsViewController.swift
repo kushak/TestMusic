@@ -183,14 +183,19 @@ final class RecordControlsViewController: UIViewController, RecordControlsInput 
     }
 
     private func share(url: URL) {
-        let objectsToShare = [url]
-        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-        present(activityVC, animated: true) {
-            self.recordButton.isEnabled = true
-            self.recordButton.isSelected = false
-            self.recordButton.tintColor = .darkText
-            self.recordButtonLoader.stopAnimating()
-
+        let vc = FinalVisulizerViewController(url: url)
+        navigationController?.pushViewController(vc, animated: true)
+        //        let objectsToShare = [url]
+        //        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        //        present(activityVC, animated: true) {
+        self.recordButton.isEnabled = true
+        self.recordButton.isSelected = false
+        self.recordButton.tintColor = .darkText
+        self.recordButtonLoader.stopAnimating()
+        if playButton.isSelected {
+            playAction()
         }
+        //
+        //        }
     }
 }
