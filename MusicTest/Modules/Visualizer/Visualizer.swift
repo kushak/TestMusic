@@ -61,9 +61,9 @@ struct Visualizer: View {
             data = audioProcessing.fftMagnitudes.map {
                 let value = min($0, Constants.magnitudeLimit)
 
-                if value != 0 {
-                    print(value)
-                }
+//                if value != 0 {
+//                    print(value)
+//                }
 
                 return value
             }

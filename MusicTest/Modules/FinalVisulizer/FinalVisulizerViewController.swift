@@ -8,8 +8,6 @@
 import AVFoundation
 import UIKit
 
-// Визуализация??
-
 final class FinalVisulizerViewController: UIViewController {
 
     private let url: URL
@@ -27,9 +25,7 @@ final class FinalVisulizerViewController: UIViewController {
         return slider
     }()
 
-    private let animatableView: [Rotation3DView] = [
-        Rotation3DView()
-    ]
+    private var animatableView: [Rotation3DView] = []
 
     init(url: URL) {
         self.url = url
@@ -70,25 +66,22 @@ final class FinalVisulizerViewController: UIViewController {
             controlsView,
         ]
 
+        controlsView.layer.zPosition = 1000
+
         views.forEach {
+            $0.layer.zPosition = 1000
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
 
-        animatableView.forEach {
-            $0.image = UIImage(named: "Rectangle")
-            $0.frame = .init(origin: .init(x: 10, y: 100), size: .init(width: 100, height: 100))
-
-            view.addSubview($0)
-        }
-
-        let rotation = Rotation()
-        let rotationView = rotation.uiView
-        rotationView.frame = .init(origin: .init(x: 10, y: 100), size: .init(width: 100, height: 100))
-        view.addSubview(rotationView)
-
-
-
+//        animatableView.forEach {
+//            $0.image = UIImage(named: "Rectangle")
+////            $0.frame = .init(origin: .init(x: 10, y: 100), size: .init(width: 100, height: 100))
+//
+//            $0.layer.zPosition = 500
+//            $0.layer.masksToBounds = false
+//            view.addSubview($0)
+//        }
 
         NSLayoutConstraint.activate(
             [
@@ -112,14 +105,13 @@ final class FinalVisulizerViewController: UIViewController {
                 guard let self, let player = audioPlayer else { return }
 
                 progressSlider.value = Float(player.currentTime / player.duration)
-                controlsView.setLeft(time: audioPlayer?.currentTime ?? 0)
+                controlsView.setLeft(time: player.currentTime)
 
-                rotation.updateAnimation()
+                animatableView.forEach {
+                    $0.randomRotatingAnimation()
+                }
             }
 
-            animatableView.forEach {
-                $0.randomRotatingAnimation()
-            }
         }
 
         controlsView.pauseAction = { [weak self] in
@@ -131,7 +123,6 @@ final class FinalVisulizerViewController: UIViewController {
         controlsView.forwardAction = { [weak self] in
             guard let self else { return }
             audioPlayer?.currentTime = audioPlayer?.duration ?? 0
-            print("+++ \(audioPlayer?.duration)")
         }
 
         controlsView.backwardAction = { [weak self] in
@@ -165,6 +156,47 @@ final class FinalVisulizerViewController: UIViewController {
         gradientLayer.frame = self.view.bounds
 
         self.view.layer.insertSublayer(gradientLayer, at:0)
+
+        var imageNames = [
+            "Rectangle1",
+            "Rectangle2",
+            "Rectangle3",
+
+            "Solar1",
+            "Solar2",
+            "Solar3",
+
+            "Spiral1",
+            "Spiral2",
+            "Spiral3",
+        ]
+
+        imageNames += imageNames
+        imageNames += imageNames
+
+        if animatableView.isEmpty && view.bounds.size != .zero {
+            animatableView = imageNames.map { name in
+                let view = Rotation3DView()
+                view.image = UIImage(named: name)
+                let size = CGFloat.random(in: 30...100)
+                view.frame = .init(
+                    origin: .init(
+                        x: .random(in: 0...self.view.bounds.maxX),
+                        y: .random(in: 0...self.view.bounds.maxY)
+                    ),
+                    size: .init(
+                        width: size,
+                        height: size
+                    )
+                )
+                view.layer.zPosition = 500
+                view.layer.masksToBounds = false
+
+                self.view.addSubview(view)
+
+                return view
+            }
+        }
     }
 
     @objc
